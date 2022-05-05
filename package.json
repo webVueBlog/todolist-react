@@ -3,6 +3,10 @@
     "version": "0.1.0",
     "license": "MIT",
     "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/webVueBlog/todolist-react.git"
+    },
     "dependencies": {
         "@testing-library/jest-dom": "^5.16.4",
         "@testing-library/react": "^13.2.0",
