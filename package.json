@@ -3,7 +3,6 @@
     "version": "0.1.0",
     "license": "MIT",
     "private": true,
-    "homepage": "/build",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/webVueBlog/todolist-react.git"
