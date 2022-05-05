@@ -11,12 +11,12 @@ export const useStore = () => {
  return store;
 }
 
-interface MyButtonProps {
+interface MyProps {
  children?: React.ReactNode;
 }
 
 // FC 函数式组件
-const MyProvider: React.FC<MyButtonProps> = ({ children }) => {
+const MyProvider: React.FC<MyProps> = ({ children }) => {
  return (
   <MyContext.Provider value={todoStore}>
    {children}
