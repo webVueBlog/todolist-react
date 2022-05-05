@@ -3,6 +3,8 @@
 ![Todoist React](./images/screenshot.png "Todoist React")
 
 ```js
+yarn install
+
 npm i -S redux react-redux @types/react-redux
 
 npm i mobx mobx-react
@@ -15,3 +17,14 @@ npm i mobx mobx-react
 5. redux使用
 6. mobx
 7. useEffect使用
+
+## Concepts and tools covered
+
+- CreateReactApp
+- Components and Props
+- Handling Events
+- State and Lifecycle
+- Redux
+- React-Redux
+- PropTypes
+- Classnames
