@@ -4,7 +4,7 @@ import TodoList from "./TodoList";
 // import MyProvider from "./MyProvider";
 // import { Provider } from "react-redux";
 // import store from "../store/index";
-import MyProvider from "../store";
+import MyProvider from "../store/index";
 
 const Todo = () => {
  return (
