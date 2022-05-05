@@ -1,13 +1,16 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import { observer } from "mobx-react";
 // import {MyContext} from './MyProvider';
-import { useDispatch } from "react-redux";
-import { addAction } from "../store/action";
+// import { useDispatch } from "react-redux";
+// import { addAction } from "../store/action";
+import { useStore } from '../store/index'
 
 const TodoInput = () => {
  const [ text, setText ] = useState('');
 
  // const { dispatch } = useContext(MyContext);
- const dispatch = useDispatch();
+ // const dispatch = useDispatch();
+ const store = useStore();
 
  const changeTextHandler = (e: React.ChangeEvent) => {
   setText((e.target as HTMLInputElement).value);
@@ -15,11 +18,16 @@ const TodoInput = () => {
 
  const addTodoHandler = () => {
   console.log(text);
-  dispatch(addAction({
+  store.addAction({
    id: new Date().getTime(),
    text: text,
    isFinished: false
-  }));
+  })
+  // dispatch(addAction({
+  //  id: new Date().getTime(),
+  //  text: text,
+  //  isFinished: false
+  // }));
   // dispatch({
   //  type: 'ADD',
   //  todo: {
@@ -38,4 +46,4 @@ const TodoInput = () => {
  )
 }
 
-export default TodoInput;
+export default observer(TodoInput);

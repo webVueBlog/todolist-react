@@ -1,7 +1,10 @@
-import React,{ useContext } from "react";
-import { useSelector } from 'react-redux';
+import React from "react";
 import TodoItem from "./TodoItem";
-import { RootState } from "../store/reducer";
+import { useStore } from '../store/index'
+import { observer } from "mobx-react";
+
+// import { useSelector } from 'react-redux';
+// import { RootState } from "../store/reducer";
 // import {MyContext} from './MyProvider';
 
 const style = {
@@ -11,9 +14,10 @@ const style = {
 const TodoList = () => {
  // const {state} = useContext(MyContext);
  // useSelector这个一般要做类型判断的
- const state = useSelector((state: RootState) => state)
+ // const state = useSelector((state: RootState) => state)
+ const store = useStore();
 
- const todolistdom = state.map(item => <TodoItem key={item.id} todo={item} />)
+ const todolistdom = store.todoList.map(item => <TodoItem key={item.id} todo={item} />)
  return (
   <div className="todo-list" style={style}>
    { todolistdom }
@@ -21,4 +25,4 @@ const TodoList = () => {
  )
 }
 
-export default TodoList;
+export default observer(TodoList);

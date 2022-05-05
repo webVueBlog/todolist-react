@@ -1,8 +1,11 @@
-import React, {useContext} from "react";
-import { StateProps } from "../store/reducer";
+import React from "react";
+import { observer } from "mobx-react";
 // import {MyContext} from './MyProvider';
-import { useDispatch } from "react-redux";
-import { changeAction } from "../store/action";
+// import { useDispatch } from "react-redux";
+// import { StateProps } from "../store/reducer";
+// import { changeAction } from "../store/action";
+import { Stateprops } from '../store/TodoStore'
+import { useStore } from '../store/index'
 
 const style = {
  marginTop: '5px',
@@ -11,14 +14,16 @@ const style = {
 }
 
 interface IProps {
- todo: StateProps;
+ todo: Stateprops;
 }
 
 const TodoItem = ({todo}: IProps) => {
- const dispatch = useDispatch();
+ // const dispatch = useDispatch();
+ const store = useStore();
 
  const changeHandler = () => {
-  dispatch(changeAction(todo.id))
+  store.changeAction(todo.id)
+  // dispatch(changeAction(todo.id))
   // dispatch({
   //  type: 'CHANGEFINISHED',
   //  id: todo.id
@@ -31,10 +36,10 @@ const TodoItem = ({todo}: IProps) => {
 
  return (
   <div className="todo-item" style={style}>
-   <input type="checkbox" checked={todo.isFinished} onChange={changeHandler}></input>
+   <input type="checkbox" checked={todo.isFinished} onChange={changeHandler} />
    <span style={spanStyle}>{todo.text}</span>
   </div>
  )
 }
 
-export default TodoItem;
+export default observer(TodoItem);

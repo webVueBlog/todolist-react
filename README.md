@@ -2,6 +2,8 @@
 
 ```js
 npm i -S redux react-redux @types/react-redux
+
+npm i mobx mobx-react
 ```
 
 1. todoList项目初始化
