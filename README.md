@@ -3,3 +3,11 @@
 ```js
 npm i -S redux react-redux @types/react-redux
 ```
+
+1. todoList项目初始化
+2. props与event
+3. context对象
+4. useReducer优化
+5. redux使用
+6. mobx
+7. useEffect使用
