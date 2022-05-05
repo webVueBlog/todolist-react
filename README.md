@@ -1,4 +1,6 @@
-# todolist-react ts
+# TypeScript版本-使用 React 和 Redux 构建的 TodoMVC (props&Event&Context&Mobx&Redux)
+
+![Todoist React](./images/screenshot.png "Todoist React")
 
 ```js
 npm i -S redux react-redux @types/react-redux

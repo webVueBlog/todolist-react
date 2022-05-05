@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { observer } from "mobx-react";
 // import {MyContext} from './MyProvider';
 // import { useDispatch } from "react-redux";
@@ -6,23 +6,33 @@ import { observer } from "mobx-react";
 import { useStore } from '../store/index'
 
 const TodoInput = () => {
- const [ text, setText ] = useState('');
+ // const [ text, setText ] = useState('');
+
+ const inputRef = useRef<HTMLInputElement>(null);
 
  // const { dispatch } = useContext(MyContext);
  // const dispatch = useDispatch();
  const store = useStore();
 
- const changeTextHandler = (e: React.ChangeEvent) => {
-  setText((e.target as HTMLInputElement).value);
- }
+ // 相当于 componentDidMount componentDidUpdate componentWillUnmount 的集合
+ useEffect(() => {
+  inputRef.current!.focus();
+ },[]);
+
+ // const changeTextHandler = (e: React.ChangeEvent) => {
+ //  setText((e.target as HTMLInputElement).value);
+ // }
 
  const addTodoHandler = () => {
-  console.log(text);
+  const value = inputRef.current!.value;
+  // console.log(text);
   store.addAction({
    id: new Date().getTime(),
-   text: text,
+   text: value,
    isFinished: false
   })
+
+  inputRef.current!.value = '';
   // dispatch(addAction({
   //  id: new Date().getTime(),
   //  text: text,
@@ -36,11 +46,12 @@ const TodoInput = () => {
   //   isFinished: false
   //  }
   // });
-  setText('');
+  // setText('');
  }
  return (
   <div className="todo-input">
-   <input type="text" placeholder="请输入代办事项" onChange={changeTextHandler} value={text}></input>
+   {/* <input type="text" placeholder="请输入代办事项" onChange={changeTextHandler} value={text}></input> */}
+   <input type="text" placeholder="请输入代办事项" ref={inputRef} />
    <button onClick={addTodoHandler}>添加</button>
   </div>
  )
