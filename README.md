@@ -1,2 +1,5 @@
-# todolist-react
-TypeScript版本-(props&amp;Event&amp;Context&amp;Mobx&amp;Redux)
+# todolist-react ts
+
+```js
+npm i -S redux react-redux @types/react-redux
+```
